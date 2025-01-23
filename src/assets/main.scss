@@ -1,0 +1,55 @@
+@forward "./stylesheets/switch";
+@forward "./stylesheets/icon";
+
+@use "./stylesheets/fonts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    direction: rtl !important;
+    box-sizing: border-box;
+    font-family: fonts.$iransans-regular !important;
+
+    @apply bg-red-50 sm:px-10
+}
+
+@mixin position-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.position-center {
+    &-fixed {
+        position: fixed;
+        @include position-center;
+    }
+
+    &-absolute {
+        position: absolute;
+        @include position-center;
+    }
+}
+
+.card {
+    @apply rounded-xl shadow-md;
+}
+
+.text-input {
+    @apply border rounded-xl py-2 w-full;
+}
+
+
+.page-title {
+    @apply text-2xl font-bold
+}
+
+.default-layout {
+    @apply mx-auto sm:max-w-7xl px-20 py-10
+}
+
+.backdrop {
+    @apply fixed top-0 bottom-0 right-0 left-0 bg-gray-300 z-40 opacity-50
+}
